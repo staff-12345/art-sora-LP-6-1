@@ -118,9 +118,9 @@
                             <p class="text-gray-600 text-sm">見守りながら作業できる間取り</p>
                         </div>
                     </div>
-                    <button class="btn-primary text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300">
+                    <a href="#request-form" class="btn-primary text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300">
                         無料相談を申し込む
-                    </button>
+                    </a>
                 </div>
                 <div>
                     <img src="https://www.hng.ne.jp/corpImg/29/case29-19_04L.jpg" alt="株式会社アート・宙 住宅イメージ" class="w-full h-auto rounded-2xl natural-shadow"/>
@@ -259,7 +259,7 @@
             </div>
             
             <div class="bg-white shadow-md rounded-2xl p-8 max-w-2xl mx-auto">
-                <form method="POST" action="https://formspree.io/f/staff@saltandpepper.jp" id="requestForm">
+                <form method="POST" action="https://formspree.io/f/xanbydvn" id="requestForm">
                     <input type="text" name="_hp_field" class="honeypot" tabindex="-1" autocomplete="off">
                     
                     <div class="grid md:grid-cols-2 gap-6 mb-6">
@@ -484,7 +484,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 株式会社アート・宙. All rights reserved.</p>
+                <p>&copy; 2025 株式会社アート・宙. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -492,18 +492,22 @@
     <script>
         // フォームバリデーション（簡易版）
         document.getElementById('requestForm').addEventListener('submit', function(e) {
+            let isValid = true;
             const privacyAgree = document.getElementById('privacy_agree');
             const nameField = document.getElementById('name');
             const emailField = document.getElementById('email');
             
-            // 必須チェック：個人情報同意
-            if (!privacyAgree.checked) {
+            // エラーメッセージをリセット
+            document.getElementById('err-privacy').classList.add('hidden');
+            document.getElementById('err-name').classList.add('hidden');
+            document.getElementById('err-email').classList.add('hidden');
+
+            // 必須チェック：メールアドレス
+            if (!emailField.value.trim() || !/^\S+@\S+\.\S+$/.test(emailField.value)) {
                 e.preventDefault();
-                document.getElementById('err-privacy').classList.remove('hidden');
-                privacyAgree.focus();
-                return;
-            } else {
-                document.getElementById('err-privacy').classList.add('hidden');
+                document.getElementById('err-email').classList.remove('hidden');
+                emailField.focus();
+                isValid = false;
             }
             
             // 必須チェック：氏名
@@ -511,22 +515,20 @@
                 e.preventDefault();
                 document.getElementById('err-name').classList.remove('hidden');
                 nameField.focus();
-                return;
-            } else {
-                document.getElementById('err-name').classList.add('hidden');
+                isValid = false;
             }
             
-            // 必須チェック：メールアドレス
-            if (!emailField.value.trim()) {
+            // 必須チェック：個人情報同意
+            if (!privacyAgree.checked) {
                 e.preventDefault();
-                document.getElementById('err-email').classList.remove('hidden');
-                emailField.focus();
-                return;
-            } else {
-                document.getElementById('err-email').classList.add('hidden');
+                document.getElementById('err-privacy').classList.remove('hidden');
+                privacyAgree.focus();
+                isValid = false;
             }
             
-            console.log('フォーム送信準備完了');
+            if (isValid) {
+                console.log('フォーム送信準備完了');
+            }
         });
         
         // スムーズスクロール
