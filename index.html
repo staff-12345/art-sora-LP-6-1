@@ -30,7 +30,6 @@
 </head>
 <body class="font-noto text-gray-800 leading-relaxed">
 
-    <!-- Hero Section -->
     <section class="hero-gradient min-h-screen flex items-center section-padding">
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -57,7 +56,6 @@
         </div>
     </section>
 
-    <!-- Problem Section -->
     <section class="bg-white section-padding">
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -91,7 +89,6 @@
         </div>
     </section>
 
-    <!-- Benefits Section -->
     <section class="bg-gray-50 section-padding">
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -132,7 +129,6 @@
         </div>
     </section>
 
-    <!-- Service Overview -->
     <section class="bg-white section-padding">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -176,7 +172,6 @@
         </div>
     </section>
 
-    <!-- Case Studies -->
     <section class="bg-gray-50 section-padding">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -216,7 +211,6 @@
         </div>
     </section>
 
-    <!-- Trust Section -->
     <section class="bg-white section-padding">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -253,7 +247,6 @@
         </div>
     </section>
 
-    <!-- Request Form Section -->
     <section id="request-form" class="bg-gray-50 section-padding">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -266,9 +259,7 @@
             </div>
             
             <div class="bg-white shadow-md rounded-2xl p-8 max-w-2xl mx-auto">
-                <!-- TODO: フォーム送信先URLを設定 -->
-                <form method="POST" action="#" id="requestForm">
-                    <!-- スパム防止のためのhoneypotフィールド -->
+                <form method="POST" action="https://formspree.io/f/staff@saltandpepper.jp" id="requestForm">
                     <input type="text" name="_hp_field" class="honeypot" tabindex="-1" autocomplete="off">
                     
                     <div class="grid md:grid-cols-2 gap-6 mb-6">
@@ -458,7 +449,6 @@
         </div>
     </section>
 
-    <!-- Final CTA -->
     <section class="bg-gradient-to-r from-orange-400 to-orange-500 section-padding">
         <div class="container mx-auto px-4 text-center">
             <h2 class="font-playfair text-3xl md:text-4xl font-bold text-white mb-6">
@@ -474,22 +464,22 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-8">
                 <div>
                     <h3 class="font-playfair text-2xl font-bold mb-4">株式会社アート・宙</h3>
                     <div class="space-y-2 text-gray-300">
-                        <p>〒510-0015 三重県四日市市波木町560-1</p>
-                        <p>TEL：0120-370-980</p>
+                        <p><strong>本社</strong></p>
+                        <p>〒510-0081 三重県四日市市北町3番4号</p>
+                        <p>TEL 059-356-0817</p>
                     </div>
                 </div>
                 <div>
                     <div class="space-y-2 text-gray-300 text-sm">
-                        <p>建設業許可：国土交通大臣許可(般-4)第26899号</p>
-                        <p>一級建築士事務所登録：三重県知事登録 第3430号</p>
-                        <p>宅地建物取引業者免許：三重県知事(5)第4370号</p>
+                        <p>建設業許可 三重県知事 許可(般4) 第21401号</p>
+                        <p>一級建築士事務所登録 三重知事登録 第1-1703号</p>
+                        <p>宅地建物取引業者免許 三重県知事(5) 第2825号</p>
                     </div>
                 </div>
             </div>
@@ -536,7 +526,6 @@
                 document.getElementById('err-email').classList.add('hidden');
             }
             
-            // TODO: 実際の送信処理を実装
             console.log('フォーム送信準備完了');
         });
         
