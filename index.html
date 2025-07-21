@@ -3,298 +3,377 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>空間を変えたら、暮らしも変わった。｜株式会社アート・宙</title>
+    <title>家事も育児も、スマートにこなせる舞台になる家 | 株式会社アート・宙</title>
+    <meta name="description" content="共働き家庭が家事・育児・在宅ワークを効率よく両立できる、柔軟でカスタマイズ可能な空間作りを提案します。住まいの自由度を高め、個々のライフスタイルにぴったりの住環境を提供。">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-        .font-playfair { font-family: 'Playfair Display', serif; }
-        .font-noto { font-family: 'Noto Sans JP', sans-serif; }
-        .hero-gradient { background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.9) 100%); }
-        .btn-primary { 
-            background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+        body {
+            font-family: 'Noto Sans JP', "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN", "Hiragino Sans", "ヒラギノ角ゴシック", sans-serif;
+            line-height: 1.7;
+        }
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 100%);
+        }
+        /* 見出し用のクラスを調整 */
+        .hero-title {
+            line-height: 1.5; /* 見出しに適した行間を指定 */
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 100%);
             transition: all 0.3s ease;
         }
-        .btn-primary:hover { 
+        .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(251, 146, 60, 0.3);
+            box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);
         }
-        .section-padding { padding: 4rem 0; }
-        .natural-shadow { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); }
-        .text-shadow { text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
-        .honeypot { position: absolute; left: -9999px; }
-        @media print {
-            body { -webkit-print-color-adjust: exact; }
-            .section-padding { padding: 2rem 0; }
+        .section-padding {
+            padding: 4rem 1rem;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
     </style>
 </head>
-<body class="font-noto text-gray-800 leading-relaxed">
+<body class="bg-gray-50">
 
-    <section class="hero-gradient min-h-screen flex items-center section-padding">
-        <div class="container mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="text-center lg:text-left">
-                    <h1 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-shadow">
-                        空間を変えたら、<br>
-                        <span class="text-orange-500">暮らしも変わった。</span>
-                    </h1>
-                    <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
-                        家事・育児・在宅ワークを効率よく両立する、<br>
-                        ナチュラルでスマートな家づくり。
-                    </p>
-                    <a href="#request-form" class="btn-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-all duration-300 inline-block">
-                        資料を無料で受け取る
-                    </a>
-                </div>
-                <div class="relative">
-                    <img src="https://i.postimg.cc/JnXYZdxk/RE-1.jpg" alt="株式会社アート・宙 住宅イメージ" class="w-full h-auto rounded-2xl natural-shadow"/>
-                    <div class="absolute -bottom-4 -right-4 bg-white rounded-2xl p-4 natural-shadow">
-                        <p class="text-sm text-gray-600 font-medium">効率的で美しい空間</p>
+    <header class="relative min-h-screen flex items-center justify-center">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://i.postimg.cc/k4jGNf57/RE-36.jpg');">
+            <div class="hero-overlay absolute inset-0"></div>
+        </div>
+        <div class="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
+            <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl font-bold mb-6 fade-in drop-shadow-lg">
+                この家は、家事も育児も<br>スマートにこなせる舞台になる。
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 fade-in drop-shadow-md">
+                家事・育児・在宅ワークを両立する、効率的な家づくり。
+            </p>
+            <a href="#contact-form" class="btn-primary inline-block px-8 py-4 rounded-full text-lg font-semibold text-white no-underline fade-in shadow-lg hover:shadow-xl">
+                <i class="fas fa-download mr-2"></i>資料を無料で受け取る
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-padding bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="fade-in">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
+                                家事や育児、仕事の時間を効率よく使いたい
+                            </h2>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                毎日の家事や育児、在宅ワークで忙しいあなた。どこから手をつけるべきか、家づくりのアイデアが湧かない、そんな不安を抱えるあなたに、この家づくりを提案したい。
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-exclamation-circle text-orange-500 text-xl mr-3 mt-1"></i>
+                                    <p class="text-gray-700">家事動線が複雑で時間がかかる</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-exclamation-circle text-orange-500 text-xl mr-3 mt-1"></i>
+                                    <p class="text-gray-700">子どもを見ながら仕事をする空間がない</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-exclamation-circle text-orange-500 text-xl mr-3 mt-1"></i>
+                                    <p class="text-gray-700">理想の住まいが具体的にイメージできない</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fade-in">
+                            <img src="https://i.postimg.cc/qMvXd5Kx/RE-18.jpg" alt="効率的な動線で設計された機能的なキッチン空間" class="rounded-lg shadow-lg w-full">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="bg-white section-padding">
-        <div class="container mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1">
-                    <img src="https://i.postimg.cc/fLY5JSW7/RE-10.jpg" alt="株式会社アート・宙 住宅イメージ" class="w-full h-auto rounded-2xl natural-shadow"/>
+        <section class="section-padding bg-gray-100">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="fade-in order-2 lg:order-1">
+                            <img src="https://i.postimg.cc/FRXV5FbY/RE-14.jpg" alt="在宅ワークに最適化された機能的なホームオフィス" class="rounded-lg shadow-lg w-full">
+                        </div>
+                        <div class="fade-in order-1 lg:order-2">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
+                                家事も育児も、もっと楽に。<br>未来の暮らしが豊かに。
+                            </h2>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                効率的な動線とスタイリッシュなデザインが、あなたの毎日をサポート。家事も育児も仕事も、スマートに両立できる家づくり。
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 text-xl mr-3 mt-1"></i>
+                                    <p class="text-gray-700">家事時間を30%短縮する動線設計</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 text-xl mr-3 mt-1"></i>
+                                    <p class="text-gray-700">子どもの成長に合わせて変化する空間</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 text-xl mr-3 mt-1"></i>
+                                    <p class="text-gray-700">集中できる在宅ワーク専用スペース</p>
+                                </div>
+                            </div>
+                            <div class="mt-8">
+                                <a href="#contact-form" class="btn-primary inline-block px-6 py-3 rounded-full text-white font-semibold no-underline">
+                                    無料相談を申し込む
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="order-1 lg:order-2">
-                    <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                        家事や育児、仕事の時間を<br>
-                        <span class="text-orange-500">効率よく使いたい</span>
+            </div>
+        </section>
+
+        <section class="section-padding bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12 fade-in">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
+                            私たちの家づくりとは
+                        </h2>
+                        <p class="text-xl text-gray-600">
+                            忙しい生活を支える、機能的でスタイリッシュな家づくり
+                        </p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center fade-in card-hover bg-gray-50 p-8 rounded-lg">
+                            <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-route text-orange-500 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-gray-800">効率的な動線設計</h3>
+                            <p class="text-gray-600">
+                                キッチン、洗面、リビングを繋ぐ最短ルートで、家事効率を大幅に向上させます。
+                            </p>
+                        </div>
+                        <div class="text-center fade-in card-hover bg-gray-50 p-8 rounded-lg">
+                            <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-expand-arrows-alt text-orange-500 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-gray-800">フレキシブルな空間</h3>
+                            <p class="text-gray-600">
+                                育児や在宅ワークに対応する、変化する生活スタイルに合わせた柔軟な空間設計。
+                            </p>
+                        </div>
+                        <div class="text-center fade-in card-hover bg-gray-50 p-8 rounded-lg">
+                            <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-star text-orange-500 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-gray-800">最新の住宅性能</h3>
+                            <p class="text-gray-600">
+                                断熱性能、耐震性能、省エネ性能を兼ね備えた、安心・安全な住まいを実現。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding bg-gray-100">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12 fade-in">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
+                            実際の施工事例
+                        </h2>
+                        <p class="text-xl text-gray-600">
+                            理想の暮らしを実現したお客様の事例をご紹介
+                        </p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden fade-in card-hover">
+                            <img src="https://i.postimg.cc/3xwLnw97/RE-5.jpg" alt="家事動線を最適化した機能的なキッチン" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">家事動線を最適化したキッチン</h3>
+                                <p class="text-gray-600">
+                                    調理から片付けまで、最短距離で完結する効率的な動線設計で、家事時間を大幅短縮。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden fade-in card-hover">
+                            <img src="https://i.postimg.cc/XYvzBVTw/RE-20.jpg" alt="オープンで機能的なリビング空間" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">オープンで機能的なリビング</h3>
+                                <p class="text-gray-600">
+                                    家族が自然に集まる開放的な空間で、コミュニケーションを育む設計。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden fade-in card-hover">
+                            <img src="https://i.postimg.cc/gjYD9spv/IMG-1976.jpg" alt="在宅ワーク専用のワークスペース" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">在宅ワーク専用のワークスペース</h3>
+                                <p class="text-gray-600">
+                                    仕事と育児の両立をサポートする、集中できる静かな作業環境を提供。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding bg-gradient-to-r from-orange-400 to-orange-600">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 fade-in text-gray-800">
+                        あなたの理想の家づくりを始めませんか？
                     </h2>
-                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
-                        毎日の家事や育児、在宅ワークで忙しいあなた。どこから手をつけるべきか、家づくりのアイデアが湧かない、そんな不安を抱えるあなたに、この家づくりを提案したい。
+                    <p class="text-xl mb-8 fade-in text-gray-700">
+                        家事・育児・在宅ワークを効率よく両立できる住まいの資料を無料でお送りします。
                     </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <div class="w-3 h-3 bg-orange-400 rounded-full mr-4"></div>
-                            <p class="text-gray-600">家事動線が複雑で時間がかかる</p>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-3 h-3 bg-orange-400 rounded-full mr-4"></div>
-                            <p class="text-gray-600">在宅ワークと育児の両立が困難</p>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-3 h-3 bg-orange-400 rounded-full mr-4"></div>
-                            <p class="text-gray-600">収納が不十分で片付かない</p>
-                        </div>
+                    <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center fade-in">
+                        <a href="#contact-form" class="btn-primary inline-block px-8 py-4 rounded-full text-lg font-semibold text-white no-underline">
+                            <i class="fas fa-download mr-2"></i>資料を無料で受け取る
+                        </a>
+                        <a href="tel:0120370980" class="inline-block px-8 py-4 rounded-full text-lg font-semibold text-gray-800 border-2 border-gray-800 hover:bg-gray-800 hover:text-white transition-all duration-300 no-underline">
+                            <i class="fas fa-phone mr-2"></i>お電話での相談
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="bg-gray-50 section-padding">
-        <div class="container mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                        家事も育児も、もっと楽に。<br>
-                        <span class="text-orange-500">未来の暮らしが豊かに。</span>
-                    </h2>
-                    <p class="text-gray-700 text-lg leading-relaxed mb-8">
-                        効率的な動線とナチュラルなデザインが、あなたの毎日をサポート。家事も育児も仕事も、スマートに両立できる家づくり。
-                    </p>
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-white p-6 rounded-xl natural-shadow">
-                            <h4 class="font-semibold text-gray-900 mb-2">時短効果</h4>
-                            <p class="text-gray-600 text-sm">効率的な動線で家事時間を30%短縮</p>
+        <section id="contact-form" class="section-padding bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12 fade-in">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">資料請求フォーム</h2>
+                        <p class="text-lg text-gray-600">以下のフォームにご入力ください。担当者より資料をお送りします。</p>
+                    </div>
+                    <form action="#" method="POST" class="space-y-6 fade-in">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-semibold mb-2">氏名 <span class="text-red-500">*</span></label>
+                            <input type="text" id="name" name="name" placeholder="例：山田 太郎" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
                         </div>
-                        <div class="bg-white p-6 rounded-xl natural-shadow">
-                            <h4 class="font-semibold text-gray-900 mb-2">快適性向上</h4>
-                            <p class="text-gray-600 text-sm">ナチュラル素材で心地よい空間</p>
+                        <div>
+                            <label for="furigana" class="block text-gray-700 font-semibold mb-2">氏名 (フリガナ) <span class="text-red-500">*</span></label>
+                            <input type="text" id="furigana" name="furigana" placeholder="例：ヤマダ タロウ" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
                         </div>
-                        <div class="bg-white p-6 rounded-xl natural-shadow">
-                            <h4 class="font-semibold text-gray-900 mb-2">在宅ワーク</h4>
-                            <p class="text-gray-600 text-sm">集中できる専用ワークスペース</p>
+                        <div>
+                            <label for="address" class="block text-gray-700 font-semibold mb-2">住所</label>
+                            <input type="text" id="address" name="address" placeholder="例：三重県四日市市波木町560-1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
                         </div>
-                        <div class="bg-white p-6 rounded-xl natural-shadow">
-                            <h4 class="font-semibold text-gray-900 mb-2">子育て支援</h4>
-                            <p class="text-gray-600 text-sm">見守りながら作業できる間取り</p>
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-semibold mb-2">電話番号 <span class="text-red-500">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="例：090-1234-5678" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-semibold mb-2">メールアドレス <span class="text-red-500">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="例：example@email.com" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+                        </div>
+                        <div>
+                            <label for="remarks" class="block text-gray-700 font-semibold mb-2">備考</label>
+                            <textarea id="remarks" name="remarks" rows="5" placeholder="ご質問やご希望などございましたら、ご自由にご記入ください。" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"></textarea>
+                        </div>
+                        <div class="text-center pt-6">
+                            <button type="submit" class="btn-primary inline-block px-12 py-4 rounded-full text-lg font-semibold text-white no-underline">
+                                <i class="fas fa-paper-plane mr-2"></i>この内容で送信する
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        </main>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">株式会社アート・宙</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><i class="fas fa-map-marker-alt mr-2"></i>〒510-0015 三重県四日市市波木町560-1</p>
+                            <p><i class="fas fa-phone mr-2"></i>TEL：<a href="tel:0120370980" class="hover:text-orange-400">0120-370-980</a></p>
+                            <p><i class="fas fa-globe mr-2"></i><a href="https://art-sora.jp/" target="_blank" rel="noopener noreferrer" class="hover:text-orange-400">公式ウェブサイト</a></p>
                         </div>
                     </div>
-                    <a href="#request-form" class="btn-primary text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300">
-                        無料相談を申し込む
-                    </a>
-                </div>
-                <div>
-                    <img src="https://i.postimg.cc/XYX89z7Y/RE-11.jpg" alt="株式会社アート・宙 住宅イメージ" class="w-full h-auto rounded-2xl natural-shadow"/>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white section-padding">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    私たちの家づくりとは
-                </h2>
-                <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-                    忙しい生活を支える、機能的でナチュラルな家づくり
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <div class="text-center p-8 bg-gray-50 rounded-2xl">
-                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <div class="w-8 h-8 bg-orange-500 rounded-full"></div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">効率的な動線設計</h3>
-                    <p class="text-gray-600">家事を効率よくこなせる最適な動線で、毎日の負担を軽減します。</p>
-                </div>
-                
-                <div class="text-center p-8 bg-gray-50 rounded-2xl">
-                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <div class="w-8 h-8 bg-orange-500 rounded-full"></div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">フレキシブル空間</h3>
-                    <p class="text-gray-600">育児や在宅ワークに対応する柔軟性のある空間設計。</p>
-                </div>
-                
-                <div class="text-center p-8 bg-gray-50 rounded-2xl">
-                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <div class="w-8 h-8 bg-orange-500 rounded-full"></div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">最新住宅性能</h3>
-                    <p class="text-gray-600">最新の住宅性能を兼ね備えた安心の設計。</p>
-                </div>
-            </div>
-            
-            <div class="text-center">
-                <img src="https://i.postimg.cc/dVX96jLm/RE-12.jpg" alt="株式会社アート・宙 住宅イメージ" class="w-full max-w-4xl mx-auto rounded-2xl natural-shadow"/>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-gray-50 section-padding">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    実際の施工事例
-                </h2>
-                <p class="text-lg text-gray-700">
-                    空間を変えて、暮らしが変わったお客様の事例をご紹介します
-                </p>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl natural-shadow overflow-hidden">
-                    <img src="https://i.postimg.cc/jj74FnfV/RE-13.jpg" alt="株式会社アート・宙 住宅イメージ" class="w-full h-48 object-cover"/>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">家事動線を最適化したキッチン</h3>
-                        <p class="text-gray-600">効率的な動線で、家事をスマートにこなせるナチュラルキッチンの実現。</p>
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">許可・登録</h4>
+                        <div class="space-y-2 text-gray-300 text-sm">
+                            <p>建設業許可：国土交通大臣許可(般-4)第26899号</p>
+                            <p>一級建築士事務所登録：三重県知事登録 第1-2370号</p>
+                            <p>宅地建物取引業者免許：三重県知事(2)第3430号</p>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="bg-white rounded-2xl natural-shadow overflow-hidden">
-                    <img src="https://i.postimg.cc/FRXV5FbY/RE-14.jpg" alt="株式会社アート・宙 住宅イメージ" class="w-full h-48 object-cover"/>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">オープンで機能的なリビング</h3>
-                        <p class="text-gray-600">家族みんなが集まる、開放感あふれる心地よいリビング空間。</p>
-                    </div>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2025 株式会社アート・宙. All rights reserved.</p>
                 </div>
-                
-                <div class="bg-white rounded-2xl natural-shadow overflow-hidden">
-                    <img src="https://i.postimg.cc/63VL9szY/RE-15.jpg" alt="株式会社アート・宙 住宅イメージ" class="w-full h-48 object-cover"/>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">在宅ワーク専用ワークスペース</h3>
-                        <p class="text-gray-600">仕事と育児の両立をサポートする、静かで集中できる作業空間。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white section-padding">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    確かな実績と信頼
-                </h2>
-                <p class="text-lg text-gray-700 mb-8">
-                    機能性とデザイン性を兼ね備えた、実績のある家づくり
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8 mb-12 max-w-md mx-auto">
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-orange-500 mb-2">450件</div>
-                    <p class="text-gray-600">施工実績</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-orange-500 mb-2">22年</div>
-                    <p class="text-gray-600">施工年数</p>
-                </div>
-            </div>
-            
-            <div class="text-center">
-                <p class="text-gray-500 text-sm">受賞実績・各種認定取得済</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="request-form" class="bg-gray-50 section-padding">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    資料を無料で受け取る
-                </h2>
-                <p class="text-lg text-gray-700">
-                    家事・育児・在宅ワークを効率よく両立する家づくりの詳しい資料をお送りします
-                </p>
-            </div>
-            
-            <div class="max-w-3xl mx-auto">
-                 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfApbDG_pzRmIvag5JsRdz_a5E57l510HQCd16RD8o4wMz7SQ/viewform?embedded=true" width="100%" height="1876" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
-            </div>
-        </div>
-    </section>
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="font-playfair text-2xl font-bold mb-4">株式会社アート・宙</h3>
-                    <div class="space-y-2 text-gray-300">
-                        <p><strong>本社</strong></p>
-                        <p>〒510-0081 三重県四日市市北町3番4号</p>
-                        <p>TEL 059-356-0817</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="space-y-2 text-gray-300 text-sm">
-                        <p>建設業許可 三重県知事 許可(般4) 第21401号</p>
-                        <p>一級建築士事務所登録 三重知事登録 第1-1703号</p>
-                        <p>宅地建物取引業者免許 三重県知事(5) 第2825号</p>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 株式会社アート・宙. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // スムーズスクロール
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+        document.addEventListener('DOMContentLoaded', function() {
+            // フェードインアニメーション
+            const fadeInElements = document.querySelectorAll('.fade-in');
+
+            const handleScrollAnimation = () => {
+                fadeInElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+
+            // 初期表示時のアニメーション
+            const initialAnimation = () => {
+                const heroElements = document.querySelectorAll('header .fade-in');
+                heroElements.forEach((element, index) => {
+                    setTimeout(() => {
+                        element.classList.add('visible');
+                    }, index * 200 + 100);
+                });
+                // ページ読み込み時に表示領域にある他の要素も表示
+                handleScrollAnimation();
+            };
+            
+            // スムーススクロール
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(this.getAttribute('href'));
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             });
+
+            // イベントリスナー
+            window.addEventListener('scroll', handleScrollAnimation);
+            
+            // ページ読み込み完了後に初期アニメーションを実行
+            initialAnimation();
         });
     </script>
-
 </body>
 </html>
