@@ -6,13 +6,12 @@
 <title>株式会社アート・宙 | 三重の自然素材リフォーム・リノベーション</title>
 <meta name="description" content="三重県で自然素材を活かした高品質なリフォーム・リノベーションならアート・宙へ。創業22年、450棟の実績で、お客様一人ひとりの暮らしに寄り添った温かい住まいをご提案します。" />
 
-<!-- （フォント）MY METHODと同等フォントが確定次第、以下を差し替え -->
+<!-- フォント：MY METHOD相当が確定したら差し替え。暫定 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- TODO: 確定フォントに変更。暫定で汎用ゴシック＋明朝を指定 -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
 
-<!-- GA4（元のIDは保持） -->
+<!-- GA4（既存ID） -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -23,21 +22,21 @@
 <style>
 /* =========================
    DESIGN TOKENS（依頼反映）
-   ・背景の基調をブルーグレー寄り（#EAF0FB）
-   ・コーポレートカラー #19273A
-   ・角丸は使わない（角あり）
+   ・基調ブルーグレー #EAF0FB
+   ・コーポレート #19273A
+   ・角丸なし（0）
    ========================= */
 :root{
-  --bg: #EAF0FB;             /* 全体の下地（MY METHOD系の淡いブルーグレー） */
-  --surface: #FFFFFF;         /* カードなど白面 */
-  --ink: #1A1D23;             /* 文章基本色（濃グレー） */
-  --ink-weak: #4D5560;        /* 補助テキスト */
-  --brand: #19273A;           /* コーポレートカラー（濃い青） */
-  --accent: #6C7A89;          /* 補助アクセント（青みグレー） */
-  --line: rgba(0,0,0,.10);    /* 罫線 */
-  --space-1: 8px; --space-2: 12px; --space-3: 20px; --space-4: 32px; --space-5: 48px; --space-6: 72px;
-  --r: 0px;                   /* 角丸は使わない＝0固定 */
-  --shadow: 0 1px 4px rgba(0,0,0,.06);
+  --bg:#EAF0FB;
+  --surface:#FFFFFF;
+  --ink:#1A1D23;
+  --ink-weak:#58606B;
+  --brand:#19273A;
+  --accent:#C8CDD2;
+  --line:rgba(0,0,0,.10);
+  --space-1:8px; --space-2:12px; --space-3:20px; --space-4:32px; --space-5:56px; --space-6:96px;
+  --r:0;
+  --shadow:0 1px 4px rgba(0,0,0,.06);
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -73,8 +72,7 @@ a:hover{opacity:.9}
 .header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.7);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
 .header-inner{display:flex;justify-content:space-between;align-items:center;padding-block:.7rem;}
 .header .brand{display:flex;align-items:center;gap:.6rem;color:var(--brand);text-decoration:none;font-weight:700;letter-spacing:.06em}
-.logo-box{width:120px;height:28px;border:1px dashed var(--accent);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--accent);background:#fff}
-/* ナビ */
+.logo-box{width:140px;height:30px;border:1px dashed var(--accent);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--accent);background:#fff}
 .nav-toggle{display:none;border:none;background:transparent;cursor:pointer;padding:10px}
 .hamburger{display:block;position:relative;width:24px;height:2px;background:var(--brand);}
 .hamburger::before,.hamburger::after{content:'';position:absolute;left:0;width:100%;height:2px;background:var(--brand);transition:transform .3s, top .3s}
@@ -91,20 +89,24 @@ a:hover{opacity:.9}
 .nav a{color:var(--brand);text-decoration:none;font-weight:500}
 .nav a:hover{opacity:.8}
 
-/* ===== HERO（熊野の森：全面写真＋霧・モザイク風レイヤ） ===== */
+/* ===== HERO：全面写真＋霧・モザイク・Ken Burns ===== */
 .hero{position:relative;isolation:isolate}
 .hero-wrap{display:grid;gap:var(--space-4);grid-template-columns:1fr}
 @media (min-width:980px){.hero-wrap{grid-template-columns:1.05fr .95fr}}
 .hero-visual{
-  position:relative;min-height:52vh;border-radius:var(--r);overflow:hidden;background:#cbd5e1; /* fallback */
+  position:relative;min-height:52vh;border-radius:var(--r);overflow:hidden;background:#cbd5e1;
   display:flex;align-items:center;justify-content:center;color:#fff;
 }
-/* 背景画像：後で差し替える */
+/* 熊野の森画像を後で差し替え：以下に背景画像を指定 */
 .hero-bg{
-  position:absolute;inset:0;background:#9fb2c6 center/cover no-repeat;
-  /* 画像挿入予定：熊野の森の写真 */
+  position:absolute;inset:0;background:center/cover no-repeat;
+  /* 例）background-image:url('kumano-forest.jpg'); */
+  background-size:110% auto; animation:ken 14s ease-in-out both;
 }
-/* 霧（モヤ）表現：上から白→透明のグラデーション + ぼかし */
+@keyframes ken{from{transform:scale(1)} to{transform:scale(1.06)}}
+@media (prefers-reduced-motion: reduce){ .hero-bg{animation:none} }
+
+/* 霧（モヤ）・モザイク微テクスチャ */
 .hero-fog{
   position:absolute;inset:0;
   background:
@@ -112,43 +114,62 @@ a:hover{opacity:.9}
     linear-gradient(to bottom, rgba(255,255,255,.22), transparent 40%, rgba(0,0,0,.06) 100%);
   backdrop-filter: blur(1.5px);
 }
-/* モザイク風（弱め） */
 .hero-mosaic{
   position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.12;
   background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.35) 0 1px, transparent 1px 2px),
                     repeating-linear-gradient(90deg, rgba(255,255,255,.35) 0 1px, transparent 1px 2px);
   filter: blur(.4px);
 }
-/* 画像プレースホルダ */
 .hero-ph{
   position:relative;z-index:2;background:rgba(255,255,255,.7);color:#111;padding:.35rem .55rem;border:1px dashed var(--accent);
   font-size:12px;letter-spacing:.05em
 }
 
-/* スクロール・リビール（既存を簡略） */
-.reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
-.revealed{opacity:1;transform:none}
+/* スクロール・リビール（静かな動き） */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .8s ease, transform .8s ease}
+.reveal.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .reveal{transition:none;transform:none;opacity:1}
+}
 
-/* ===== 「こんなお悩み…」再設計（自動スクロール廃止／大きめカード／イラスト挿入予定） ===== */
+/* 画像のマスク・リビール＆デュオトーン */
+.mask-reveal{clip-path: inset(20% 0 20% 0 round 0); opacity:.001; transition:clip-path 1.1s ease, opacity .8s ease}
+.mask-reveal.is-in{clip-path: inset(0 0 0 0 round 0); opacity:1}
+.duotone{position:relative; isolation:isolate; filter:saturate(85%) contrast(105%)}
+.duotone::after{
+  content:""; position:absolute; inset:0; pointer-events:none; mix-blend-mode:multiply;
+  background: linear-gradient(180deg, rgba(25,39,58,.10), rgba(25,39,58,.18)); opacity:.8;
+}
+@media (prefers-reduced-motion: reduce){
+  .mask-reveal{transition:none;opacity:1;clip-path: inset(0)}
+}
+
+/* 見出し：行ごと出現 */
+.split-line{display:inline-block; overflow:hidden}
+.split-line > span{display:block; transform:translateY(1em); opacity:0; transition:transform .7s ease, opacity .7s ease}
+.split-line.is-in > span{transform:none; opacity:1}
+
+/* ===== 「こんなお悩み…」再設計 ===== */
 .worries{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--space-3)}
 .worries-grid{display:grid;gap:12px;grid-template-columns:1fr}
 @media (min-width:680px){.worries-grid{grid-template-columns:1fr 1fr}}
 @media (min-width:980px){.worries-grid{grid-template-columns:1fr 1fr 1fr}}
 .worry-card{
   display:grid;grid-template-columns:56px 1fr;gap:12px;align-items:start;
-  border:1px solid var(--line);background:#fff;border-radius:var(--r);padding:14px;
+  border:1px solid var(--line);background:#fff;border-radius:var(--r);padding:14px;transition:transform .25s ease, box-shadow .25s ease
 }
+.worry-card:hover{transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.06)}
+@media (hover:none){ .worry-card:hover{transform:none; box-shadow:none} }
 .worry-ill{
   width:56px;height:56px;border:1px dashed var(--accent);display:flex;align-items:center;justify-content:center;
   font-size:11px;color:var(--accent);background:#F6F8FB;
 }
 .worry-text{line-height:1.8}
 
-/* ===== 実績紹介 ===== */
+/* ===== 実績・実例・ギャラリー・FAQ ===== */
 .achievements{background:#fff;border:1px solid var(--line);padding:var(--space-3)}
 .achievements img{width:100%;border-radius:var(--r)}
 
-/* ===== 実例（構造は維持、角丸→0） ===== */
 .zig{display:grid;gap:1.2rem;grid-template-columns:1fr}
 @media (min-width:980px){.zig{grid-template-columns:1.05fr .95fr; align-items:start;}}
 .frame{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff}
@@ -157,7 +178,6 @@ a:hover{opacity:.9}
 .num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;margin-right:.45rem;float:left;margin-top:4px}
 .caption .big span.num + *{overflow:hidden;display:block;padding-left:.5em}
 
-/* ===== ギャラリー（構造は維持、角丸→0） ===== */
 .gallery-wrap{position:relative}
 .gallery-rail{display:flex;gap:14px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
 .gallery-rail img{flex:0 0 min(86vw,520px);height:320px;object-fit:cover;border-radius:var(--r);box-shadow:var(--shadow);scroll-snap-align:center}
@@ -168,7 +188,6 @@ a:hover{opacity:.9}
 .gallery-arrow:hover{background:rgba(0,0,0,.5)}
 .gallery-arrow.prev{left:1rem}.gallery-arrow.next{right:1rem}
 
-/* ===== FAQ / Present / etc. ===== */
 .faq details{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1rem}
 .faq details+details{margin-top:.6rem}
 .faq summary{cursor:pointer;font-weight:600;list-style:none}
@@ -183,7 +202,6 @@ a:hover{opacity:.9}
 </head>
 <body data-show-price="false">
 
-<!-- ================= HEADER ================= -->
 <header class="header">
   <div class="container header-inner">
     <a class="brand" href="#">
@@ -204,12 +222,14 @@ a:hover{opacity:.9}
   </div>
 </header>
 
-<!-- ================= HERO：熊野の森（全面） ================= -->
+<!-- ===== HERO：熊野の森（全面） ===== -->
 <section class="section hero" id="hero" aria-label="ファーストビジュアル">
   <div class="container hero-wrap">
     <div>
-      <p class="reveal small" style="letter-spacing:.2em;text-transform:uppercase;color:var(--accent)">Warmth &amp; Wood</p>
-      <h1 class="reveal" style="margin-top:.4rem">自然素材で、暮らしに<br>ぬくもりを。<br>新しい暮らしを、<br>アート・宙と。</h1>
+      <p class="reveal small" style="letter-spacing:.2em;text-transform:uppercase;color:var(--ink-weak)">Warmth &amp; Wood</p>
+      <h1 class="reveal" data-split-lines style="margin-top:.4rem">
+        自然素材で、暮らしに<br>ぬくもりを。<br>新しい暮らしを、<br>アート・宙と。
+      </h1>
       <p class="reveal" style="margin-top:1rem">三重県でリフォーム・リノベーションするなら<strong>株式会社アート・宙</strong>。自然素材とやさしい設計で、住まいの「居ごこち」を丁寧に整えます。</p>
       <div class="reveal" style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
         <a href="#contact-form" class="btn btn-primary">資料請求</a>
@@ -218,7 +238,7 @@ a:hover{opacity:.9}
     </div>
 
     <div class="hero-visual">
-      <div class="hero-bg"></div>
+      <div class="hero-bg"></div> <!-- ← 熊野の森に差し替え -->
       <div class="hero-fog"></div>
       <div class="hero-mosaic"></div>
       <div class="hero-ph">画像挿入予定：熊野の森の写真</div>
@@ -226,13 +246,13 @@ a:hover{opacity:.9}
   </div>
 </section>
 
-<!-- ================= お悩み（再設計：やさしいUI） ================= -->
+<!-- ===== お悩み（再設計：横スクロール廃止・イラスト枠） ===== -->
 <section class="section" id="worries" aria-labelledby="worries-h">
   <div class="container">
     <h2 id="worries-h" class="reveal">こんなお悩みはありませんか？</h2>
 
     <div class="worries reveal" role="list">
-      <p class="small" style="margin-bottom:12px">※ 横スクロールなし・タップしやすい大きめ表示。イラストは後日差し替え。</p>
+      <p class="small" style="margin-bottom:12px">※ 自動スライドを廃止。タップ/視認しやすいカード配置。イラストは後日差し替え。</p>
       <div class="worries-grid">
         <!-- 既存テキストをそのまま使用 -->
         <div class="worry-card" role="listitem">
@@ -270,12 +290,12 @@ a:hover{opacity:.9}
   </div>
 </section>
 
-<!-- ================= サービス（構造維持／角丸なし） ================= -->
+<!-- ===== サービス（既存文言維持） ===== -->
 <section class="section" id="services" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="container">
     <h2 class="reveal">アート宙のリフォーム・リノベーションについて</h2>
     <div class="container" style="display:grid;gap:1.2rem;grid-template-columns:1fr;max-width:1120px;padding:0">
-      <div class="card" id="svc1" style="padding:1.1rem">
+      <div class="card reveal" id="svc1" style="padding:1.1rem">
         <h3>アート・宙のリフォーム</h3>
         <p style="margin-top:.6rem">
           部分改修から断熱・耐震・水回りまで。住みながらの工事が可能なメニューもあり、
@@ -291,7 +311,7 @@ a:hover{opacity:.9}
         </details>
       </div>
 
-      <div class="card" id="svc2" style="padding:1.1rem">
+      <div class="card reveal" id="svc2" style="padding:1.1rem">
         <h3>アート・宙のリノベーション（戸建・マンション対応）</h3>
         <p style="margin-top:.6rem">
           間取りの再構築や内装一新、設備の総入れ替えまで。
@@ -311,30 +331,28 @@ a:hover{opacity:.9}
   </div>
 </section>
 
-<!-- ================= 実績紹介（画像は現状維持／今後ナンバリング見やすく） ================= -->
+<!-- ===== 実績紹介（画像は現状維持／ナンバリング見やすくは後日） ===== -->
 <section class="section" id="achievements" aria-labelledby="ach-h">
   <div class="container">
     <h2 id="ach-h" class="reveal">実績紹介</h2>
     <div class="achievements reveal">
-      <img src="https://i.postimg.cc/8zskxC18/image.png" alt="アート・宙の実績（受賞・年数・件数のバッジ一覧）">
+      <img class="mask-reveal duotone" src="https://i.postimg.cc/8zskxC18/image.png" alt="アート・宙の実績（受賞・年数・件数のバッジ一覧）">
       <p class="small" style="margin-top:8px">
-        ※ ナンバリングの見やすさ改善：番号入り画像をご提供いただければ差し替え可能です。<br>
-        ※ 材料・特徴の説明テキストは、情報提供後に追記予定。
+        ※ ナンバリングの見やすさ：番号入り画像をご提供いただければ差し替え可能。<br>
+        ※ 材料・特徴の説明は情報提供後に追記予定。
       </p>
     </div>
   </div>
 </section>
 
-<!-- ================= 実例（既存テキストそのまま） ================= -->
+<!-- ===== 実例（既存文言維持、画像に演出クラス可） ===== -->
 <section class="section" id="cases" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="container">
     <h2 class="reveal">実例紹介</h2>
 
     <div class="zig">
       <div class="frame">
-        <!-- 既存画像のまま／差し替え時は下の一行と置換 -->
-        <img src="https://i.postimg.cc/g0KmVy2g/2025-09-12-22-12-54.png" alt="床柱を残した和モダンなLDK">
-        <!-- <div class="hero-ph" style="margin:8px">画像挿入予定：実例写真</div> -->
+        <img class="mask-reveal duotone" src="https://i.postimg.cc/g0KmVy2g/2025-09-12-22-12-54.png" alt="床柱を残した和モダンなLDK">
       </div>
       <div>
         <h3>事例1｜和室続き→ワンフロア化でつながるLDK（鈴鹿市）</h3>
@@ -368,36 +386,36 @@ a:hover{opacity:.9}
         </div>
       </div>
       <div class="frame">
-        <img src="https://i.postimg.cc/DZyFBWWn/2025-09-12-22-13-05.png" alt="梁あらわしで趣のあるリビングダイニング">
+        <img class="mask-reveal duotone" src="https://i.postimg.cc/DZyFBWWn/2025-09-12-22-13-05.png" alt="梁あらわしで趣のあるリビングダイニング">
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= 自然カットの挿入ポイント ================= -->
+<!-- ===== 自然カット（画像プレースホルダ） ===== -->
 <section class="section" id="nature-cuts">
   <div class="container">
     <h2 class="reveal">自然素材・自然カット</h2>
-    <div class="card" style="padding:16px;display:grid;gap:12px;grid-template-columns:1fr 1fr">
-      <div class="hero-ph">画像挿入予定：木材（無垢）・年輪・木口などのイメージ</div>
-      <div class="hero-ph">画像挿入予定：熊野の海・森・山霧 などのイメージ</div>
+    <div class="card reveal" style="padding:16px;display:grid;gap:12px;grid-template-columns:1fr 1fr">
+      <div class="hero-ph">画像挿入予定：木材（無垢）・年輪・木口など</div>
+      <div class="hero-ph">画像挿入予定：熊野の海・森・山霧 など</div>
     </div>
   </div>
 </section>
 
-<!-- ================= ギャラリー（構造維持） ================= -->
+<!-- ===== ギャラリー（既存構成） ===== -->
 <section class="section" id="gallery">
   <div class="container">
     <h2 class="reveal">写真</h2>
     <div class="gallery-wrap reveal">
       <div class="gallery-rail" id="galleryRail" aria-label="施工写真ギャラリー">
-        <img src="https://i.postimg.cc/rm7wvVqD/LP1.jpg" alt="施工事例ギャラリー1">
-        <img src="https://i.postimg.cc/5NB2RWTt/LP2.jpg" alt="施工事例ギャラリー2">
-        <img src="https://i.postimg.cc/VkzkyHPW/LP3.jpg" alt="施工事例ギャラリー3">
-        <img src="https://i.postimg.cc/rwgFqC8X/LP4.jpg" alt="施工事例ギャラリー4">
-        <img src="https://i.postimg.cc/sDd2mgn8/LP5.jpg" alt="施工事例ギャラリー5">
-        <img src="https://i.postimg.cc/N0MGF9My/LP6.jpg" alt="施工事例ギャラリー6">
-        <img src="https://i.postimg.cc/nr8n3317/LP7.jpg" alt="施工事例ギャラリー7">
+        <img class="mask-reveal duotone" src="https://i.postimg.cc/rm7wvVqD/LP1.jpg" alt="施工事例ギャラリー1">
+        <img class="mask-reveal duotone" src="https://i.postimg.cc/5NB2RWTt/LP2.jpg" alt="施工事例ギャラリー2">
+        <img class="mask-reveal duotone" src="https://i.postimg.cc/VkzkyHPW/LP3.jpg" alt="施工事例ギャラリー3">
+        <img class="mask-reveal duotone" src="https://i.postimg.cc/rwgFqC8X/LP4.jpg" alt="施工事例ギャラリー4">
+        <img class="mask-reveal duotone" src="https://i.postimg.cc/sDd2mgn8/LP5.jpg" alt="施工事例ギャラリー5">
+        <img class="mask-reveal duotone" src="https://i.postimg.cc/N0MGF9My/LP6.jpg" alt="施工事例ギャラリー6">
+        <img class="mask-reveal duotone" src="https://i.postimg.cc/nr8n3317/LP7.jpg" alt="施工事例ギャラリー7">
       </div>
       <div class="gallery-nav" id="galleryDots" aria-hidden="true"></div>
       <button id="galleryPrev" class="gallery-arrow prev" aria-label="前の写真へ">
@@ -410,7 +428,7 @@ a:hover{opacity:.9}
   </div>
 </section>
 
-<!-- ================= FAQ ================= -->
+<!-- ===== FAQ ===== -->
 <section class="section" id="faq" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="container faq">
     <h2 class="reveal">よくある質問</h2>
@@ -421,7 +439,7 @@ a:hover{opacity:.9}
   </div>
 </section>
 
-<!-- ================= プレゼント（コースター写真プレースホルダ） ================= -->
+<!-- ===== プレゼント（コースター写真プレースホルダ） ===== -->
 <section class="section" id="present">
   <div class="container">
     <h2 class="reveal" style="text-align:center">プレゼント</h2>
@@ -436,7 +454,7 @@ a:hover{opacity:.9}
   </div>
 </section>
 
-<!-- ================= お問い合わせ ================= -->
+<!-- ===== お問い合わせ ===== -->
 <section class="section" id="contact-form">
   <div class="container">
     <h2 class="reveal" style="text-align:center">お問い合わせ・資料請求</h2>
@@ -446,7 +464,7 @@ a:hover{opacity:.9}
   </div>
 </section>
 
-<!-- ================= 会社情報 ================= -->
+<!-- ===== 会社情報 ===== -->
 <section class="section" id="company">
   <div class="container">
     <h2>会社情報</h2>
@@ -462,13 +480,34 @@ a:hover{opacity:.9}
 </footer>
 
 <script>
-/** Scroll reveal */
-const io = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target);} });
-},{threshold:.14});
-for(const el of document.querySelectorAll('.reveal')) io.observe(el);
+/** Scroll reveal（静かめ） */
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target);} });
+},{threshold:.15});
+document.querySelectorAll('.reveal, .mask-reveal').forEach(el=>io.observe(el));
 
-/** ギャラリー */
+/** 見出し：行ごと出現（<br>で分割） */
+document.querySelectorAll('[data-split-lines]').forEach(el=>{
+  const lines = el.innerHTML.trim().split('<br>');
+  el.innerHTML = lines.map(t=>`<span class="split-line"><span>${t}</span></span>`).join('<br>');
+  // 1行目のsplit-lineにis-in付与トリガを渡す
+  const first = el.querySelector('.split-line');
+  if(first){
+    const i2 = new IntersectionObserver(es=>{
+      es.forEach(e=>{
+        if(e.isIntersecting){
+          el.querySelectorAll('.split-line').forEach((s,i)=>{
+            setTimeout(()=>s.classList.add('is-in'), i*120);
+          });
+          i2.unobserve(first);
+        }
+      });
+    },{threshold:.2});
+    i2.observe(first);
+  }
+});
+
+/** ギャラリー（簡易） */
 (function(){
   const rail = document.getElementById('galleryRail'); if(!rail) return;
   const slides = Array.from(rail.querySelectorAll('img'));
@@ -483,19 +522,15 @@ for(const el of document.querySelectorAll('.reveal')) io.observe(el);
       d.addEventListener('click',()=>go(i)); dotsWrap.appendChild(d);
     });
   }
-  function updateDots(){
-    dotsWrap.querySelectorAll('.gallery-dot').forEach((d,i)=>d.classList.toggle('active', i===idx));
-  }
+  function updateDots(){ dotsWrap.querySelectorAll('.gallery-dot').forEach((d,i)=>d.classList.toggle('active', i===idx)); }
   function go(i){
     idx = (i + slides.length) % slides.length;
     const target = slides[idx];
     rail.scrollTo({left: target.offsetLeft, behavior:'smooth'}); updateDots();
   }
-  function next(){ go(idx + 1); }
-  function prev(){ go(idx - 1); }
   buildDots();
-  prevBtn?.addEventListener('click', prev);
-  nextBtn?.addEventListener('click', next);
+  prevBtn?.addEventListener('click', ()=>go(idx-1));
+  nextBtn?.addEventListener('click', ()=>go(idx+1));
 })();
 
 /** ハンバーガー */
